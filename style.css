@@ -1,0 +1,169 @@
+/* MODERN RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: #0b0e14; /* Ana koyu lacivert tonu */
+    color: #eeeeee;
+    line-height: 1.6;
+    overflow-x: hidden;
+    
+    /* ARKA PLANI SABİTLEME */
+    background-image: linear-gradient(rgba(11, 14, 20, 0.8), rgba(11, 14, 20, 0.8)), url('arka-plan.png');
+    background-attachment: fixed; /* Sayfa aksa da resim kalır */
+    background-size: cover;
+    background-position: center;
+}
+
+/* NAVİGASYON (ÜST YUMUŞAK GEÇİŞ) */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    
+    /* Yukardan aşağıya doğru lacivertten şeffafa yumuşak geçiş */
+    background: linear-gradient(to bottom, #0b0e14 0%, rgba(11, 14, 20, 0.9) 70%, transparent 100%);
+    backdrop-filter: blur(5px); /* Hafif cam efekti */
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 900;
+    color: #f39c12;
+    text-shadow: 0 0 15px rgba(243, 156, 18, 0.4);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li { margin-left: 30px; }
+
+nav a {
+    color: #fff;
+    font-weight: 500;
+    transition: 0.3s;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+nav a:hover { opacity: 1; color: #f39c12; }
+
+/* HEADER (GİRİŞ) */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: transparent; /* Arka plan body'den geliyor */
+}
+
+header h1 {
+    font-size: 5rem;
+    color: #f39c12;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.9);
+    margin-bottom: 15px;
+}
+
+header p {
+    font-size: 1.4rem;
+    max-width: 800px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* BÖLÜMLER (SECTIONS) */
+section {
+    padding: 120px 10%;
+    /* Bölümlerin arka planını şeffaf yapıyoruz ki sabit resim görünsün */
+    background: transparent; 
+}
+
+h2 {
+    font-size: 3rem;
+    color: #f39c12;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* HAKKIMIZDA KUTUSU (MODERN TASARIM) */
+.about-text {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(22, 27, 34, 0.6); /* Daha şeffaf ve cam gibi */
+    padding: 50px;
+    border-radius: 25px;
+    border: 1px solid rgba(243, 156, 18, 0.2);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    font-size: 1.2rem;
+    border-left: 8px solid #f39c12;
+}
+
+/* PROGRAM KARTLARI VE SUNUCU GRUPLARI */
+.server-group, .program-card, .apply-box {
+    background: rgba(22, 27, 34, 0.7) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: 0.4s ease;
+}
+
+.program-card:hover, .server-group:hover {
+    border-color: #f39c12;
+    transform: translateY(-8px);
+    background: rgba(30, 35, 45, 0.9) !important;
+}
+
+.program-card {
+    color: white !important;
+    display: flex;
+    padding: 20px;
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+/* ALT KISIM (AŞAĞIDAN YUMUŞAK GEÇİŞ) */
+footer {
+    padding: 80px 10%;
+    /* Aşağıdan yukarıya doğru lacivertten şeffafa geçiş */
+    background: linear-gradient(to top, #0b0e14 0%, rgba(11, 14, 20, 0.9) 60%, transparent 100%);
+    text-align: center;
+    border-top: 1px solid rgba(243, 156, 18, 0.1);
+}
+
+/* BUTONLAR */
+.btn {
+    padding: 16px 40px;
+    border-radius: 12px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+    margin-top: 25px;
+}
+
+.discord-btn { background: #5865f2; color: white; }
+.secondary { background: #238636; color: white; }
+
+.btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/*
