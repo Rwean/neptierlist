@@ -1,17 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+/* Minecraft Fontu */
+@font-face {
+    font-family: 'Minecraft';
+    src: url('https://db.onlinewebfonts.com/t/6ab5395e2361661183182881d779836a.woff2') format('woff2');
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
+    text-decoration: none !important;
+    user-select: none;
 }
 
 body {
     background-color: #0b0e14;
     color: #fff;
-    /* Adalances tarzı net arka plan */
+    font-family: 'Poppins', sans-serif;
     background-image: url('arka-plan.png');
     background-attachment: fixed;
     background-size: cover;
@@ -19,41 +25,44 @@ body {
     overflow-x: hidden;
 }
 
-/* Üst Menü - Daha şeffaf ve şık */
+/* YUMUŞAK GEÇİŞLİ BULANIKLIK (ÜSTTEKİ SİSLİ HAVA) */
+.blur-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    backdrop-filter: blur(20px);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 25%, transparent 60%);
+    mask-image: linear-gradient(to bottom, black 0%, black 25%, transparent 60%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* NAVIGASYON (ÜST MENÜ) */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
+    padding: 20px 8%;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .logo {
+    font-family: 'Minecraft', sans-serif;
     font-size: 24px;
-    font-weight: 900;
     color: #f39c12;
-    letter-spacing: 3px;
+    text-shadow: 2px 2px 0px #000;
 }
 
-nav ul { display: flex; list-style: none; }
-nav ul li { margin-left: 35px; }
-nav a {
-    color: #fff;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: 0.3s;
-}
+nav ul { display: flex; list-style: none; gap: 30px; }
+nav a { color: #fff; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
 nav a:hover { color: #f39c12; }
 
-/* Giriş Alanı */
+/* HEADER (GİRİŞ) */
 header {
     height: 100vh;
     display: flex;
@@ -61,106 +70,74 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
+    z-index: 5;
     padding: 0 20px;
 }
 
 header h1 {
-    font-size: 5.5rem;
-    font-weight: 900;
-    margin-bottom: 20px;
-    background: linear-gradient(to bottom, #fff, #f39c12);
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    background: linear-gradient(to bottom, #fff 60%, #f39c12);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
 }
 
-/* YENİ DISCORD BUTONU (Modern & Şık) */
 .discord-btn {
-    padding: 15px 45px;
-    border: 2px solid #f39c12;
-    background: rgba(243, 156, 18, 0.1);
-    color: #f39c12;
-    font-weight: 900;
-    border-radius: 50px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: 0.4s;
-    box-shadow: 0 0 20px rgba(243, 156, 18, 0.2);
-}
-
-.discord-btn:hover {
+    padding: 15px 40px;
     background: #f39c12;
-    color: #000;
-    box-shadow: 0 0 40px rgba(243, 156, 18, 0.5);
-    transform: scale(1.05);
-}
-
-/* HAKKIMIZDA (ZenitMC Tarzı Şeffaf Kart) */
-.about-text {
-    max-width: 1100px;
-    margin: 80px auto;
-    background: rgba(255, 255, 255, 0.03); /* Çok hafif şeffaflık */
-    backdrop-filter: blur(15px); /* Cam efekti */
-    padding: 60px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
-    line-height: 2;
-    font-size: 1.2rem;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-}
-
-/* SUNUCULAR & PROGRAMLAR (Grid Düzeni) */
-.program-grid, .server-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 40px 0;
-}
-
-.program-card, .server-group {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 40px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: 0.4s;
-    backdrop-filter: blur(5px);
-}
-
-.program-card:hover, .server-group:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #f39c12;
-    transform: translateY(-10px);
-}
-
-/* YETKİLİ ALIM */
-.apply-box {
-    background: rgba(243, 156, 18, 0.05);
-    border: 2px dashed rgba(243, 156, 18, 0.3);
-    padding: 50px;
-    border-radius: 25px;
-    margin: 20px;
-}
-
-.apply-box .btn {
-    background: #f39c12;
-    color: #000;
-    padding: 12px 30px;
+    color: #000 !important;
     font-weight: 800;
     border-radius: 10px;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(243, 156, 18, 0.3);
 }
 
-/* GENEL ARA BOŞLUKLAR */
+.discord-btn:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(243, 156, 18, 0.5); }
+
+/* BÖLÜMLERİ BİRBİRİNDEN AYIRAN SİSTEM */
 section {
-    padding: 150px 10%; /* Yazıların birbirine girmesini engeller */
+    padding: 100px 10%;
+    position: relative;
+    z-index: 10;
+    background: transparent;
+    clear: both; /* Üst üste binmeyi engeller */
 }
 
-h2 {
-    font-size: 3.5rem;
-    font-weight: 900;
-    margin-bottom: 60px;
-    text-transform: uppercase;
+h2 { font-size: 3rem; margin-bottom: 40px; color: #f39c12; text-align: center; font-weight: 800; }
+
+/* ŞEFFAF KARTLAR (GLASSMORPHISM) */
+.about-box, .lb-card, .program-item, .apply-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 20px;
 }
 
-/* Alt Çizgileri Kaldır */
-a { color: inherit; }
+/* SIRALAMA (LEADERBOARD) GRID */
+.lb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.lb-card h3 { color: #f39c12; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+.lb-list { list-style: none; }
+.lb-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.rank-1 { color: #f1c40f; font-weight: bold; }
+
+/* PROGRAMLAR GRID */
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.program-item { padding: 20px; text-align: center; color: #fff !important; transition: 0.3s; }
+.program-item:hover { border-color: #f39c12; background: rgba(243, 156, 18, 0.05); }
+
+footer { padding: 50px; text-align: center; opacity: 0.5; }
